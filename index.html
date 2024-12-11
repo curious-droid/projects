@@ -54,7 +54,7 @@
     }
 
     li {
-      margin: 15px 0;
+      margin: 25px 0;
     }
 
     a {
@@ -62,11 +62,18 @@
       color: #74ebd5;
       font-size: 1.2rem;
       font-weight: bold;
-      transition: color 0.3s;
+      transition: color 0.3s, box-shadow 0.3s;
     }
 
     a:hover {
       color: #fff;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .description {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      color: #ccc;
     }
 
     footer {
@@ -80,9 +87,18 @@
   <div class="container">
     <h1>My Projects</h1>
     <ul>
-      <li><a href="https://cambio-online.vercel.app/" target="_blank">Cambio Online</a></li>
-      <li><a href="https://eagle-gpt.vercel.app/chat" target="_blank">EagleGPT</a></li>
-      <li><a href="https://curious-droid.github.io/107-solver/" target="_blank">107 Solver</a></li>
+      <li>
+        <a href="https://cambio-online.vercel.app/" target="_blank">Cambio Online</a>
+        <div class="description">Play the game of Cambio with online friends.</div>
+      </li>
+      <li>
+        <a href="https://eagle-gpt.vercel.app/chat" target="_blank">EagleGPT</a>
+        <div class="description">A context-aware chatbot for information about Los Altos High School.</div>
+      </li>
+      <li>
+        <a href="https://curious-droid.github.io/107-solver/" target="_blank">107 Solver</a>
+        <div class="description">Finds all combinations of 5 numbers to make 107. David's MCSP twist on the popular game 24.</div>
+      </li>
     </ul>
     <footer>
       Created by Jonathan
