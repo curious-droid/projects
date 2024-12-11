@@ -14,24 +14,12 @@
 
     body {
       background: linear-gradient(135deg, #74ebd5, #9face6);
-      animation: huePulse 6s ease infinite;
       color: #fff;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    @keyframes huePulse {
-      0% {
-        filter: hue-rotate(0deg);
-      }
-      50% {
-        filter: hue-rotate(30deg);
-      }
-      100% {
-        filter: hue-rotate(0deg);
-      }
+      transition: background 0.2s ease;
     }
 
     .container {
@@ -79,6 +67,15 @@
       color: #ccc;
     }
   </style>
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      const hue1 = Math.round(x * 360);
+      const hue2 = Math.round(y * 360);
+      document.body.style.background = `linear-gradient(135deg, hsl(${hue1}, 70%, 70%), hsl(${hue2}, 70%, 70%))`;
+    });
+  </script>
 </head>
 <body>
   <div class="container">
