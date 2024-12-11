@@ -68,18 +68,20 @@
     }
   </style>
   <script>
-    let hue = 0;
+  let hueShift = 0;
 
-    function updateBackground() {
-      hue += 0.5; // Increment hue value
-      const hue1 = (hue) % 360;
-      const hue2 = (hue + 60) % 360; // Second color slightly offset
-      document.body.style.background = `linear-gradient(135deg, hsl(${hue1}, 70%, 70%), hsl(${hue2}, 70%, 70%))`;
-      requestAnimationFrame(updateBackground);
-    }
+  function updateBackground() {
+    hueShift += 0.5; // Increment hue shift
+    const hue1 = 180 + Math.sin(hueShift / 50) * 10; // Pulsing hue around the original 180 (cyan)
+    const hue2 = 240 + Math.sin(hueShift / 50) * 10; // Pulsing hue around the original 240 (blue)
+    document.body.style.background = `linear-gradient(135deg, hsl(${hue1}, 70%, 70%), hsl(${hue2}, 70%, 70%))`;
+    requestAnimationFrame(updateBackground);
+  }
 
+  document.addEventListener("DOMContentLoaded", () => {
     updateBackground();
-  </script>
+  });
+</script>
 </head>
 <body>
   <div class="container">
