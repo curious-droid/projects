@@ -13,7 +13,8 @@
     }
 
     body {
-      background: linear-gradient(135deg, #74ebd5, #9face6);
+      background: linear-gradient(0deg, #74ebd5, #9face6);
+      background-size: 400% 400%;
       color: #fff;
       min-height: 100vh;
       display: flex;
@@ -68,20 +69,18 @@
     }
   </style>
   <script>
-  let hueShift = 0;
+    let angle = 0;
 
-  function updateBackground() {
-    hueShift += 2; // Increment hue shift
-    const hue1 = 180 + Math.sin(hueShift / 50) * 10; // Pulsing hue around the original 180 (cyan)
-    const hue2 = 240 + Math.sin(hueShift / 50) * 10; // Pulsing hue around the original 240 (blue)
-    document.body.style.background = `linear-gradient(135deg, hsl(${hue1}, 70%, 70%), hsl(${hue2}, 70%, 70%))`;
-    requestAnimationFrame(updateBackground);
-  }
+    function rotateGradient() {
+      angle = (angle + 1) % 360; // Increment and wrap the angle
+      document.body.style.background = `linear-gradient(${angle}deg, #74ebd5, #9face6)`;
+      requestAnimationFrame(rotateGradient); // Call the function on the next frame
+    }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    updateBackground();
-  });
-</script>
+    document.addEventListener("DOMContentLoaded", () => {
+      rotateGradient();
+    });
+  </script>
 </head>
 <body>
   <div class="container">
