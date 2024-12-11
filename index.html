@@ -14,24 +14,12 @@
 
     body {
       background: linear-gradient(135deg, #74ebd5, #9face6);
-      animation: huePulse 6s ease infinite;
       color: #fff;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    @keyframes huePulse {
-      0% {
-        filter: hue-rotate(0deg);
-      }
-      50% {
-        filter: hue-rotate(60deg);
-      }
-      100% {
-        filter: hue-rotate(0deg);
-      }
+      transition: background 0.2s ease;
     }
 
     .container {
@@ -79,6 +67,19 @@
       color: #ccc;
     }
   </style>
+  <script>
+    let hue = 0;
+
+    function updateBackground() {
+      hue += 0.5; // Increment hue value
+      const hue1 = (hue) % 360;
+      const hue2 = (hue + 60) % 360; // Second color slightly offset
+      document.body.style.background = `linear-gradient(135deg, hsl(${hue1}, 70%, 70%), hsl(${hue2}, 70%, 70%))`;
+      requestAnimationFrame(updateBackground);
+    }
+
+    updateBackground();
+  </script>
 </head>
 <body>
   <div class="container">
