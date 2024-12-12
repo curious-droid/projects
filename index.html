@@ -85,7 +85,7 @@
     let angle = 0;
 
     function rotateGradient() {
-      angle = (angle + 0.5) % 360; // Increment and wrap the angle
+      angle = (angle + 1) % 360; // Increment and wrap the angle
       document.body.style.background = `linear-gradient(${angle}deg, #78EBD2, #A078E6)`;
       requestAnimationFrame(rotateGradient); // Call the function on the next frame
     }
